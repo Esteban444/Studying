@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CleanArchitecture", "CleanArchitecture", "{D41F065F-7635-4C51-86D6-7C9B1FE97B2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Domain", "CleanArchitecture\CleanArchitecture.Domain\CleanArchitecture.Domain.csproj", "{69EDEC83-14D1-4FEA-BB73-8522A7FC013D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69EDEC83-14D1-4FEA-BB73-8522A7FC013D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69EDEC83-14D1-4FEA-BB73-8522A7FC013D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69EDEC83-14D1-4FEA-BB73-8522A7FC013D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69EDEC83-14D1-4FEA-BB73-8522A7FC013D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{69EDEC83-14D1-4FEA-BB73-8522A7FC013D} = {D41F065F-7635-4C51-86D6-7C9B1FE97B2E}
+	EndGlobalSection
+EndGlobal

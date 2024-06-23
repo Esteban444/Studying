@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\CleanArchitecture",
+    "\\CleanArchitecture\\CleanArchitecture.Domain",
+    "\\CleanArchitecture\\CleanArchitecture.Domain\\Entities",
+    "\\CleanArchitecture\\CleanArchitecture.Domain\\Entities\\Cars"
+  ],
+  "SelectedNode": "\\CleanArchitecture\\CleanArchitecture.Domain\\Entities\\Cars\\Car.cs",
+  "PreviewInSolutionExplorer": false
+}
