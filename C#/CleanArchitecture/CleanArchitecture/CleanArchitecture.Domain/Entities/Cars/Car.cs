@@ -1,24 +1,20 @@
-using System.Dynamic;
+using CleanArchitecture.Domain.Abstractions;
+using CleanArchitecture.Domain.Entities.Cars;
 
 namespace CleanArchitecture.Domain.Cars;
 
-public sealed class Car 
+public sealed class Car: Entity
 {
-    public Guid Id { get; private set; }
+    public Car( Guid id ): base( id )
+    {
+        
+    }
 
-    public string? Model { get; private set; }
+    public Models? Model { get; private set; }
 
-    public string? Vin { get; private set; }
+    public Vins? Vin { get; private set; }
 
-    public string? Address { get; private set; }
-
-    public string? Department { get; private set; }
-
-    public string? Province { get; private set; }
-
-    public string? City { get; private set; }
-
-    public string? Country { get; private set; }
+    public Address Address { get; private set; }
 
     public decimal Price { get; private set; }
 

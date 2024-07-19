@@ -1,0 +1,71 @@
+# Archivos binarios y de salida de compilación
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio Code
+.vscode/
+
+# Paquetes NuGet
+*.nupkg
+**/packages/*
+!**/packages/build/
+
+# Configuración de usuario de Visual Studio
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# Archivos de registro de Visual Studio
+*.log
+
+# Archivos de bloqueo de NuGet
+project.lock.json
+project.fragment.lock.json
+
+# Archivos de paquetes de NuGet
+packages/
+
+# Archivos de caché de VS
+.vs/
+
+# Archivos de Base de Datos de Entity Framework
+*.mdf
+*.ldf
+
+# Archivos de configuración de entidad framework
+appsettings.json
+appsettings.*.json
+
+# Archivos de configuración de migración
+Migrations/
+
+# Archivos generados automáticamente por el entorno de desarrollo
+*.generated.cs
+
+# Archivos de configuración de servidor web
+*.vspscc
+*.vssscc
+
+# Archivos temporales de trabajo
+*~
+
+# Archivos de caché del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de aplicación específicos
+*.exe
+*.dll
+*.pdb
+
+# Archivos de configuración de uso personal
+*.config
+
+# Archivos de cobertura de código
+*.coverage
+*.coveragexml
+*.testlog
+
+# Archivos de configuración de depuración
+launchSettings.json
