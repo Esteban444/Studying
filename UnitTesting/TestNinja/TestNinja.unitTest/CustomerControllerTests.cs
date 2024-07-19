@@ -4,7 +4,7 @@ using TestNinja.Fundamentals;
 namespace TestNinja.unitTest
 {
     [TestFixture]
-    public class CustomerControllerTest
+    public class CustomerControllerTests
     {
         [Test]
         public void GetCustomer_IdIsZero_ReturnNotFound()
