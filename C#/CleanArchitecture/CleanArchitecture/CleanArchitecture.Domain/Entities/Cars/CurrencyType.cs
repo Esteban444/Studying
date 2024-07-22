@@ -2,7 +2,7 @@
 {
     public record CurrencyType
     {
-        public static readonly CurrencyType none = new( "" );
+        public static readonly CurrencyType None = new( "" );
 
         public static readonly CurrencyType Usd = new( "USD" );
 
