@@ -5,6 +5,6 @@ public enum Accesory
     Wifi = 1,
     AirConditioning = 2,
     AppleCar = 3,
-    Androidcar = 4,
+    AndroidCar = 4,
     Maps = 5
 }

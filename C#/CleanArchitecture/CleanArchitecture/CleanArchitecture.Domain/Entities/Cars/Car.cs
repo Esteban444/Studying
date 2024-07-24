@@ -36,7 +36,7 @@ public sealed class Car: Entity
 
     public Currency? Maintenance { get; private set;}
 
-    public DateTime? LastRentalDate { get; private set; }
+    public DateTime? LastRentalDate { get; internal set; }
 
     public List<Accesory>?  Accesories { get; private set;}
 }
