@@ -1,4 +1,3 @@
-﻿namespace CleanArchitecture.Domain.Entities.Users
-{
-    public record Name( string name );
-}
+﻿namespace CleanArchitecture.Domain.Entities.Users;
+
+public record Name( string name );

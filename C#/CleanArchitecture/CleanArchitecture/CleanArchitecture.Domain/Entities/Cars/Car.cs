@@ -1,7 +1,7 @@
+namespace CleanArchitecture.Domain.Cars;
+
 using CleanArchitecture.Domain.Abstractions;
 using CleanArchitecture.Domain.Entities.Cars;
-
-namespace CleanArchitecture.Domain.Cars;
 
 public sealed class Car: Entity
 {

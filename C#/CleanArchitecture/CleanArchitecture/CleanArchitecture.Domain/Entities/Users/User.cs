@@ -32,7 +32,7 @@ namespace CleanArchitecture.Domain.Entities.Users
         {
             var user = new User( Guid.NewGuid(), name, lastName, email);
 
-            user.AddEvents( new UserCreatedEvents( user.Id ) );// al momento que se cree un nuevo usuario se ejecutara este evento.
+            user.RaiseDomainEvent( new UserCreatedEvents( user.Id ) );// al momento que se cree un nuevo usuario se ejecutara este evento.
 
             return user;
         }

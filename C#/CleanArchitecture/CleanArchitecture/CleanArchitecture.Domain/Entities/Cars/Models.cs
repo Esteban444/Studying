@@ -1,7 +1,6 @@
-﻿namespace CleanArchitecture.Domain.Entities.Cars
-{
-    public record Models
-    (
-        string Model
-    );
-}
+﻿namespace CleanArchitecture.Domain.Entities.Cars;
+
+public record Models
+(
+    string Model
+);

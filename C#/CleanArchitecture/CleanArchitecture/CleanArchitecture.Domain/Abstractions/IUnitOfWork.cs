@@ -1,7 +1,6 @@
-﻿namespace CleanArchitecture.Domain.Abstractions
+﻿namespace CleanArchitecture.Domain.Abstractions;
+
+public interface IUnitOfWork
 {
-    public interface IUnitOfWork
-    {
-        Task<Guid> SaveChangesAsync( CancellationToken cancellationToken = default );
-    }
+    Task<Guid> SaveChangesAsync( CancellationToken cancellationToken = default );
 }
