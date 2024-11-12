@@ -1,3 +1,3 @@
 ﻿namespace CleanArchitecture.Domain.Entities.Users;
 
-public record Email( string email );
+public record Names( string name );

@@ -2,18 +2,19 @@ namespace CleanArchitecture.Domain.Cars;
 
 using CleanArchitecture.Domain.Abstractions;
 using CleanArchitecture.Domain.Entities.Cars;
+using CleanArchitecture.Domain.Shared;
 
-public sealed class Car: Entity
+public sealed class Cars: Entity
 {
-    public Car(
+    public Cars(
         Guid id,
         Models models,
         Vins vin,
-        Currency price,
-        Currency maintenance,
+        Currencies price,
+        Currencies maintenance,
         DateTime? lastRentalDate,
-        List<Accesory> accesories,
-        Address address
+        List<Accesories> accesories,
+        Addresses address
         ) : base( id )
     {
         Model = models;
@@ -30,13 +31,13 @@ public sealed class Car: Entity
 
     public Vins? Vin { get; private set; }
 
-    public Address? Address { get; private set; }
+    public Addresses? Address { get; private set; }
 
-    public Currency? Price { get; private set; }
+    public Currencies? Price { get; private set; }
 
-    public Currency? Maintenance { get; private set;}
+    public Currencies? Maintenance { get; private set;}
 
     public DateTime? LastRentalDate { get; internal set; }
 
-    public List<Accesory>?  Accesories { get; private set;}
+    public List<Accesories>?  Accesories { get; private set;}
 }

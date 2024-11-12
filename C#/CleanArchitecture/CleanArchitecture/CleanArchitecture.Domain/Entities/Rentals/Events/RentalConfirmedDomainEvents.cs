@@ -2,6 +2,6 @@
 
 using CleanArchitecture.Domain.Abstractions;
 
-public sealed record  RentalCanceledDomainEvent( Guid rentalId ): IDomainEvent
+public sealed record RentalConfirmedDomainEvents( Guid rentalId ): IDomainEvent
 {
 }

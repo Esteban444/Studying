@@ -1,6 +1,6 @@
 namespace CleanArchitecture.Domain.Cars;
 
-public enum Accesory
+public enum Accesories
 {
     Wifi = 1,
     AirConditioning = 2,

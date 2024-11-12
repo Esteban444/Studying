@@ -4,6 +4,6 @@ namespace CleanArchitecture.Domain.Interfaces
 {
     public interface ICarsRepository
     {
-        Task<Car> GetByIdAsync( Guid carId , CancellationToken cancellationToken = default );
+        Task<Cars.Cars> GetByIdAsync( Guid carId , CancellationToken cancellationToken = default );
     }
 }

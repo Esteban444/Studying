@@ -18,3 +18,7 @@ D:\Repositorios\Studying\C#\CleanArchitecture\CleanArchitecture\CleanArchitectur
 D:\Repositorios\Studying\C#\CleanArchitecture\CleanArchitecture\CleanArchitecture.Domain\obj\Debug\net8.0\CleanArchitecture.Domain.dll
 D:\Repositorios\Studying\C#\CleanArchitecture\CleanArchitecture\CleanArchitecture.Domain\obj\Debug\net8.0\refint\CleanArchitecture.Domain.dll
 D:\Repositorios\Studying\C#\CleanArchitecture\CleanArchitecture\CleanArchitecture.Domain\obj\Debug\net8.0\CleanArchitecture.Domain.pdb
+D:\Repositorios\Studying\C#\CleanArchitecture\CleanArchitecture\CleanArchitecture.Domain\bin\Debug\net8.0\CleanArchitecture.Domain.deps.json
+D:\Repositorios\Studying\C#\CleanArchitecture\CleanArchitecture\CleanArchitecture.Domain\bin\Debug\net8.0\CleanArchitecture.Domain.dll
+D:\Repositorios\Studying\C#\CleanArchitecture\CleanArchitecture\CleanArchitecture.Domain\bin\Debug\net8.0\CleanArchitecture.Domain.pdb
+D:\Repositorios\Studying\C#\CleanArchitecture\CleanArchitecture\CleanArchitecture.Domain\obj\Debug\net8.0\ref\CleanArchitecture.Domain.dll

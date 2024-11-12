@@ -1,6 +1,6 @@
 ﻿namespace CleanArchitecture.Domain.Entities.Cars;
 
-public record Address
+public record Addresses
 (
     string Country,
     string Department,

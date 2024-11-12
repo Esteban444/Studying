@@ -2,22 +2,22 @@
 
 #region Usings
 using CleanArchitecture.Domain.Cars;
-using CleanArchitecture.Domain.Entities.Cars;
 using CleanArchitecture.Domain.Entities.Rentals;
+using CleanArchitecture.Domain.Shared;
 #endregion
 
-public class PriceService
+public class PricesService
 {
-    public PriceService()
+    public PricesService()
     {
         
     }
 
-    public DetailsPrice CalculatedPrice ( Car car , DateRange dateRange)
+    public DetailPrices CalculatedPrice ( Cars car , DateRanges dateRange)
     {
         var typeCurrency = car.Price!.currencyType;
 
-        var price = new Currency( dateRange.NumberOfDays* car.Price.Amount, typeCurrency);
+        var price = new Currencies( dateRange.NumberOfDays* car.Price.Amount, typeCurrency);
 
         decimal percentageChange = 0;
 
@@ -25,21 +25,21 @@ public class PriceService
         {
             percentageChange += accesory switch
             {
-                Accesory.AppleCar or Accesory.AndroidCar => 0.05m,
-                Accesory.AirConditioning => 0.01m,
-                Accesory.Maps => 0.01m,
+                Accesories.AppleCar or Accesories.AndroidCar => 0.05m,
+                Accesories.AirConditioning => 0.01m,
+                Accesories.Maps => 0.01m,
                 _ =>  0
             };
         }
 
-        var accesoriesCharges = Currency.Zero(typeCurrency);
+        var accesoriesCharges = Currencies.Zero(typeCurrency);
 
         if ( percentageChange > 0 )
         {
-            accesoriesCharges = new Currency( price.Amount* percentageChange, typeCurrency );
+            accesoriesCharges = new Currencies( price.Amount* percentageChange, typeCurrency );
         }
 
-        var totalPrice = Currency.Zero();
+        var totalPrice = Currencies.Zero();
         totalPrice += price;
 
         if( !car.Maintenance!.IsZero())
@@ -49,7 +49,7 @@ public class PriceService
 
         totalPrice += accesoriesCharges;
 
-        return new DetailsPrice ( 
+        return new DetailPrices ( 
             price, 
             car.Maintenance, 
             accesoriesCharges,

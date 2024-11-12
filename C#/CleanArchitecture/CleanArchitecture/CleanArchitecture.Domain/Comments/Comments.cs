@@ -1,0 +1,54 @@
+﻿namespace CleanArchitecture.Domain.Comments;
+
+using CleanArchitecture.Domain.Abstractions;
+using CleanArchitecture.Domain.Comments.Events;
+using CleanArchitecture.Domain.Entities.Rentals;
+
+public class Comments: Entity
+{
+    private Comments( Guid id, Guid carId, Guid rentalId, Guid userId, Rating rating,  string comment, DateTime? createdAt ): base( id )
+    {
+        CarId = carId;
+        RentalId = rentalId;
+        UserId = userId;
+        Comment = comment;
+        CreatedAt = createdAt;
+    }
+
+    public Guid CarId { get;  private set; }
+
+    public Guid RentalId { get; private set; }
+
+    public Guid UserId { get; private set; }
+
+    public Rating Rating { get; private set; }
+
+    public string Comment { get; private set; }
+
+    public DateTime? CreatedAt { get; private set; }
+
+
+    public static Result<Comments> Create( Rentals rentals, Rating rating, string comment, DateTime createdAt )
+    {
+        if (rentals.Status != RentalStatus.Completed)
+        { 
+
+            return Result.Failure<Comments>( CommentsErrors.NotElegible );
+        }
+
+        var comments = new Comments
+        (
+            Guid.NewGuid(),
+            rentals.CarId,
+            rentals.Id,
+            rentals.UserId,
+            rating,
+            comment,
+            createdAt
+        );
+
+        comments.RaiseDomainEvent( new CommentCreatedDomainEvents( comments.Id ) );
+
+        return comments;
+    }
+}

@@ -2,7 +2,7 @@
 
  using CleanArchitecture.Domain.Abstractions;
 
- public sealed record RentalRejectDomainEvent( Guid rentalId ): IDomainEvent
+ public sealed record RentalRejectDomainEvents( Guid rentalId ): IDomainEvent
  {
  }
 

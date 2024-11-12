@@ -3,13 +3,13 @@ using CleanArchitecture.Domain.Entities.Users.Events;
 
 namespace CleanArchitecture.Domain.Entities.Users
 {
-    public class User: Entity
+    public class Users: Entity
     {
-        private User(
+        private Users(
             Guid id,
-            Name name,
-            LastName lastName,
-            Email email
+            Names name,
+            LastNames lastName,
+            Emails email
             ): base( id ) 
         { 
             this.Name = name;
@@ -17,20 +17,20 @@ namespace CleanArchitecture.Domain.Entities.Users
             this.Email = email;  
         }
 
-        public Name Name {  get; private set; }
+        public Names Name {  get; private set; }
 
-        public LastName LastName { get; private set; }
+        public LastNames LastName { get; private set; }
 
-        public Email Email { get; private set; }
+        public Emails Email { get; private set; }
 
 
-        public static User Create( 
-            Name name,
-            LastName lastName,
-            Email email
+        public static Users Create( 
+            Names name,
+            LastNames lastName,
+            Emails email
             )
         {
-            var user = new User( Guid.NewGuid(), name, lastName, email);
+            var user = new Users( Guid.NewGuid(), name, lastName, email);
 
             user.RaiseDomainEvent( new UserCreatedEvents( user.Id ) );// al momento que se cree un nuevo usuario se ejecutara este evento.
 

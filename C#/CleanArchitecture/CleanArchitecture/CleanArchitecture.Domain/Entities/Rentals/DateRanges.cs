@@ -1,8 +1,8 @@
 ﻿namespace CleanArchitecture.Domain.Entities.Rentals;
 
-public sealed record DateRange
+public sealed record DateRanges
 {
-    private DateRange( )
+    private DateRanges( )
     {
         
     }
@@ -13,14 +13,14 @@ public sealed record DateRange
 
     public int NumberOfDays => EndDate.DayNumber - StartDate.DayNumber;
 
-    public static DateRange Create ( DateOnly startDate, DateOnly endDate )
+    public static DateRanges Create ( DateOnly startDate, DateOnly endDate )
     {
         if( startDate >  endDate )
         {
             throw new ApplicationException( "The start date is greater than the end date" );
         }
 
-        return new DateRange 
+        return new DateRanges 
         {
             StartDate = startDate,
             EndDate = endDate

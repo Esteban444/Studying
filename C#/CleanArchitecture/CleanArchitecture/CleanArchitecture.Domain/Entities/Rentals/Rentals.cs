@@ -3,23 +3,23 @@
 #region Usings
 using CleanArchitecture.Domain.Abstractions;
 using CleanArchitecture.Domain.Cars;
-using CleanArchitecture.Domain.Entities.Cars;
 using CleanArchitecture.Domain.Entities.Rentals.Events;
 using CleanArchitecture.Domain.Services;
+using CleanArchitecture.Domain.Shared;
 #endregion
 
-public sealed class Rental : Entity
+public sealed class Rentals : Entity
 {
-    private Rental( 
+    private Rentals( 
         Guid id,
         Guid carId,
         Guid userId,
-        Currency price,
-        Currency maintenance,
-        Currency accesories,
-        Currency totalPrice,
+        Currencies price,
+        Currencies maintenance,
+        Currencies accesories,
+        Currencies totalPrice,
         RentalStatus status,
-        DateRange dateRange,
+        DateRanges dateRange,
         DateTime createdAt
         ) : base( id )
     {
@@ -38,17 +38,17 @@ public sealed class Rental : Entity
 
     public Guid UserId { get; private set; }
 
-    public Currency? Price { get; private set; }
+    public Currencies? Price { get; private set; }
 
-    public Currency? Maintenance { get; private set; }
+    public Currencies? Maintenance { get; private set; }
 
-    public Currency? Accesories { get; private set; }
+    public Currencies? Accesories { get; private set; }
 
-    public Currency? TotalPrice { get; private set; }
+    public Currencies? TotalPrice { get; private set; }
 
     public RentalStatus Status { get; private set; }
 
-    public DateRange? DateRange { get; private set; }
+    public DateRanges? DateRange { get; private set; }
 
     public DateTime? CreatedAt { get; private set; }
 
@@ -61,19 +61,19 @@ public sealed class Rental : Entity
     public DateTime? CanceledDate { get; private set; }
 
 
-    public static Rental Reserva( 
-        Car car, 
+    public static Rentals Reserva( 
+        Cars car, 
         Guid userId, 
-        DateRange dateRange,
+        DateRanges dateRange,
         DateTime createdAt,
-        PriceService priceService
+        PricesService priceService
         )
     {
         var detailsPrice = priceService.CalculatedPrice( 
               car,
               dateRange
             );
-        var rental = new Rental
+        var rental = new Rentals
             (
               Guid.NewGuid(),
               car.Id,
@@ -104,7 +104,7 @@ public sealed class Rental : Entity
         Status = RentalStatus.Confirmed;
         ConfirmationDate = dateUtcNow;
 
-        RaiseDomainEvent( new RentalConfirmedDomainEvent( Id ) );
+        RaiseDomainEvent( new RentalConfirmedDomainEvents( Id ) );
 
         return Result.Success();
     }
@@ -119,7 +119,7 @@ public sealed class Rental : Entity
         Status = RentalStatus.Rejected;
         RejectDate = dateUtcNow;
 
-        RaiseDomainEvent( new RentalRejectDomainEvent( Id ) );
+        RaiseDomainEvent( new RentalRejectDomainEvents( Id ) );
 
         return Result.Success();
     }
@@ -141,7 +141,7 @@ public sealed class Rental : Entity
         Status = RentalStatus.Canceled;
         CanceledDate = dateUtcNow;
 
-        RaiseDomainEvent( new RentalCanceledDomainEvent( Id ) );
+        RaiseDomainEvent( new RentalCanceledDomainEvents( Id ) );
 
         return Result.Success();
     }
@@ -156,7 +156,7 @@ public sealed class Rental : Entity
         Status = RentalStatus.Completed;
         CompletedDate = utcNow;
 
-        RaiseDomainEvent( new RentalCompletedDomainEvent( Id ) );
+        RaiseDomainEvent( new RentalCompletedDomainEvents( Id ) );
 
         return Result.Success();
     }
@@ -171,7 +171,7 @@ public sealed class Rental : Entity
         Status = RentalStatus.Completed;
         CompletedDate = dateUtcNow;
 
-        RaiseDomainEvent( new RentalCompletedDomainEvent( Id ) );
+        RaiseDomainEvent( new RentalCompletedDomainEvents( Id ) );
 
         return Result.Success();
     }
