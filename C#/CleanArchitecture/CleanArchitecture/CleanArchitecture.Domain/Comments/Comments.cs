@@ -6,11 +6,12 @@ using CleanArchitecture.Domain.Entities.Rentals;
 
 public class Comments: Entity
 {
-    private Comments( Guid id, Guid carId, Guid rentalId, Guid userId, Rating rating,  string comment, DateTime? createdAt ): base( id )
+    private Comments( Guid id, Guid carId, Guid rentalId, Guid userId, Rating rating,  Comment comment, DateTime? createdAt ): base( id )
     {
         CarId = carId;
         RentalId = rentalId;
         UserId = userId;
+        Rating = rating;
         Comment = comment;
         CreatedAt = createdAt;
     }
@@ -23,12 +24,12 @@ public class Comments: Entity
 
     public Rating Rating { get; private set; }
 
-    public string Comment { get; private set; }
+    public Comment Comment { get; private set; }
 
     public DateTime? CreatedAt { get; private set; }
 
 
-    public static Result<Comments> Create( Rentals rentals, Rating rating, string comment, DateTime createdAt )
+    public static Result<Comments> Create( Rentals rentals, Rating rating, Comment comment, DateTime createdAt )
     {
         if (rentals.Status != RentalStatus.Completed)
         { 

@@ -5,23 +5,33 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CleanArchitecture", "CleanArchitecture", "{D41F065F-7635-4C51-86D6-7C9B1FE97B2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Domain", "CleanArchitecture\CleanArchitecture.Domain\CleanArchitecture.Domain.csproj", "{69EDEC83-14D1-4FEA-BB73-8522A7FC013D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Domain", "CleanArchitecture\CleanArchitecture.Domain\CleanArchitecture.Domain.csproj", "{69EDEC83-14D1-4FEA-BB73-8522A7FC013D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Application", "CleanArchitecture.Application\CleanArchitecture.Application.csproj", "{B8D8B3EE-FA0A-4687-9DF1-78FE5A537C5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{69EDEC83-14D1-4FEA-BB73-8522A7FC013D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{69EDEC83-14D1-4FEA-BB73-8522A7FC013D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69EDEC83-14D1-4FEA-BB73-8522A7FC013D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69EDEC83-14D1-4FEA-BB73-8522A7FC013D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8D8B3EE-FA0A-4687-9DF1-78FE5A537C5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8D8B3EE-FA0A-4687-9DF1-78FE5A537C5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8D8B3EE-FA0A-4687-9DF1-78FE5A537C5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8D8B3EE-FA0A-4687-9DF1-78FE5A537C5A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{69EDEC83-14D1-4FEA-BB73-8522A7FC013D} = {D41F065F-7635-4C51-86D6-7C9B1FE97B2E}
+		{B8D8B3EE-FA0A-4687-9DF1-78FE5A537C5A} = {D41F065F-7635-4C51-86D6-7C9B1FE97B2E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F6CAADEC-4DDD-41E4-B39B-15053B5F19B8}
 	EndGlobalSection
 EndGlobal
