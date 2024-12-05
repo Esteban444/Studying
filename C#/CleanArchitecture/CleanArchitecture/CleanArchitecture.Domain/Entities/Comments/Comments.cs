@@ -1,12 +1,12 @@
-﻿namespace CleanArchitecture.Domain.Comments;
+﻿namespace CleanArchitecture.Domain.Entities.Comments;
 
 using CleanArchitecture.Domain.Abstractions;
-using CleanArchitecture.Domain.Comments.Events;
+using CleanArchitecture.Domain.Entities.Comments.Events;
 using CleanArchitecture.Domain.Entities.Rentals;
 
-public class Comments: Entity
+public class Comments : Entity
 {
-    private Comments( Guid id, Guid carId, Guid rentalId, Guid userId, Rating rating,  Comment comment, DateTime? createdAt ): base( id )
+    private Comments(Guid id, Guid carId, Guid rentalId, Guid userId, Rating rating, Comment comment, DateTime? createdAt) : base(id)
     {
         CarId = carId;
         RentalId = rentalId;
@@ -16,7 +16,7 @@ public class Comments: Entity
         CreatedAt = createdAt;
     }
 
-    public Guid CarId { get;  private set; }
+    public Guid CarId { get; private set; }
 
     public Guid RentalId { get; private set; }
 
@@ -29,12 +29,12 @@ public class Comments: Entity
     public DateTime? CreatedAt { get; private set; }
 
 
-    public static Result<Comments> Create( Rentals rentals, Rating rating, Comment comment, DateTime createdAt )
+    public static Result<Comments> Create(Rentals rentals, Rating rating, Comment comment, DateTime createdAt)
     {
         if (rentals.Status != RentalStatus.Completed)
-        { 
+        {
 
-            return Result.Failure<Comments>( CommentsErrors.NotElegible );
+            return Result.Failure<Comments>(CommentsErrors.NotElegible);
         }
 
         var comments = new Comments
@@ -48,7 +48,7 @@ public class Comments: Entity
             createdAt
         );
 
-        comments.RaiseDomainEvent( new CommentCreatedDomainEvents( comments.Id ) );
+        comments.RaiseDomainEvent(new CommentCreatedDomainEvents(comments.Id));
 
         return comments;
     }
