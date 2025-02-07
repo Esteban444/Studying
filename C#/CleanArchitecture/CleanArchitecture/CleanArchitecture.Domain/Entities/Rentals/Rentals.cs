@@ -61,18 +61,11 @@ public sealed class Rentals : Entity
     public DateTime? CanceledDate { get; private set; }
 
 
-    public static Rentals Reserva( 
-        Cars car, 
-        Guid userId, 
-        DateRanges dateRange,
-        DateTime createdAt,
-        PricesService priceService
-        )
+    public static Rentals Reserva(  Cars car, Guid userId, DateRanges dateRange,
+                                    DateTime createdAt,PricesService priceService )
     {
-        var detailsPrice = priceService.CalculatedPrice( 
-              car,
-              dateRange
-            );
+        var detailsPrice = priceService.CalculatedPrice( car, dateRange );
+
         var rental = new Rentals
             (
               Guid.NewGuid(),

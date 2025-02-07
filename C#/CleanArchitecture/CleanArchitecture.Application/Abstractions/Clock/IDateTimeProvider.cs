@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Domain.Abstractions.Clock;
+﻿namespace CleanArchitecture.Application.Abstractions.Clock;
 
 public interface IDateTimeProvider
 {
