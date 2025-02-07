@@ -2,6 +2,6 @@
 
 using CleanArchitecture.Application.Abstractions.Messaging;
 
-public class SearchRentalQuery( Guid rentalId ): IQuery<RentalResponse>
+public sealed record SearchRentalQuery( Guid RentalId ): IQuery<RentalResponse>
 {
 }

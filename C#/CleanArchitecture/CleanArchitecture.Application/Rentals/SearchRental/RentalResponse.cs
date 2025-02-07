@@ -8,6 +8,8 @@ public sealed class RentalResponse
 
     public Guid CarId { get; init; }
 
+    public int Status { get; init; }
+
     public decimal RentalPrice { get; init; }
 
     public string? TypeCurrencyRental { get; init; }
