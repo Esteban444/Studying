@@ -16,9 +16,9 @@ public record CurrencyTypes
         Usd, Eur
     };
 
-    public static CurrencyTypes FromCode(string code)
+    public static CurrencyTypes FromCode( string code )
     {
-        return All.FirstOrDefault(c => c.Code == code) ??
-            throw new ApplicationException("Type currency invalit");
+        return All.FirstOrDefault( c => c.Code == code ) ??
+            throw new ApplicationException( "Type currency invalit" );
     }
 }

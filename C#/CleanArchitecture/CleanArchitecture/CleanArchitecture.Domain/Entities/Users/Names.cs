@@ -1,3 +1,3 @@
 ﻿namespace CleanArchitecture.Domain.Entities.Users;
 
-public record Names( string name );
+public record Names( string Name );

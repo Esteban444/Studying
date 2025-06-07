@@ -1,3 +1,3 @@
 ﻿namespace CleanArchitecture.Domain.Entities.Users;
 
-public record LastNames( string lastName );
+public record LastNames( string LastName );
