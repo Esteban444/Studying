@@ -2,6 +2,7 @@
 
 using CleanArchitecture.Application.Abstractions.Clock;
 using CleanArchitecture.Application.Abstractions.Messaging;
+using CleanArchitecture.Application.Exceptions;
 using CleanArchitecture.Domain.Abstractions;
 using CleanArchitecture.Domain.Entities.Cars;
 using CleanArchitecture.Domain.Entities.Rentals;
@@ -9,13 +10,13 @@ using CleanArchitecture.Domain.Entities.Users;
 using CleanArchitecture.Domain.Interfaces;
 using CleanArchitecture.Domain.Services;
 
-internal sealed class BookRentalCommandHandler( IUsersRepository usersRepository, ICarsRepository carsRepository,
-                                 IRentalsRepository rentalsRepository, PricesService priceService,
+internal sealed class BookRentalCommandHandler( IUserRepository usersRepository, ICarRepository carsRepository,
+                                 IRentalRepository rentalsRepository, PricesService priceService,
                                  IUnitOfWork unitOfWork,IDateTimeProvider dateTimeProvider ) : ICommandHandler<BookRentalCommand, Guid>
 {
-    private readonly IUsersRepository _usersRepository = usersRepository;
-    private readonly ICarsRepository _carsRepository = carsRepository;
-    private readonly IRentalsRepository _rentalsRepository = rentalsRepository;
+    private readonly IUserRepository _usersRepository = usersRepository;
+    private readonly ICarRepository _carsRepository = carsRepository;
+    private readonly IRentalRepository _rentalsRepository = rentalsRepository;
     private readonly PricesService _priceService = priceService;
     private readonly IUnitOfWork _unitOfWork = unitOfWork;
     private readonly IDateTimeProvider _dateTimeProvider = dateTimeProvider;
@@ -43,12 +44,19 @@ internal sealed class BookRentalCommandHandler( IUsersRepository usersRepository
             return Result.Failure<Guid>( RentalErrors.Overlap );
         }
 
-        var rental = Rentals.Reserva( car, user.Id, duration, _dateTimeProvider.CurrenTime, _priceService ); 
+        try
+        {
+            var rental = Rentals.Reserva( car, user.Id, duration, _dateTimeProvider.CurrenTime, _priceService );
 
-        await _rentalsRepository.AddRentalAsync( rental );
+            _rentalsRepository.Add( rental );
 
-        await _unitOfWork.SaveChangesAsync( cancellationToken );
+            await _unitOfWork.SaveChangesAsync( cancellationToken );
 
-        return rental.Id;
+            return rental.Id;
+        }
+        catch ( ConcurrencyException )
+        {
+            return Result.Failure<Guid>( RentalErrors.Overlap );
+        }
     }
 }

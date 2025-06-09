@@ -5,9 +5,9 @@ using CleanArchitecture.Domain.Cars;
 using CleanArchitecture.Domain.Entities.Rentals;
 #endregion
 
-public interface IRentalsRepository
+public interface IRentalRepository
 {
-    Task<Rentals?> GetRentalByIdAsync( Guid id, CancellationToken cancellationToken = default );
+    Task<Rentals?> GetByIdAsync( Guid id, CancellationToken cancellationToken = default );
 
     Task<bool> IsOverlappingAsync(
         Cars car,
@@ -15,5 +15,5 @@ public interface IRentalsRepository
         CancellationToken cancellationToken = default
     );
 
-    Task<Rentals> AddRentalAsync( Rentals rental );
+    void Add( Rentals rental );
 }

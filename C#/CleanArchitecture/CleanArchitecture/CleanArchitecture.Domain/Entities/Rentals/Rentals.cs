@@ -75,7 +75,7 @@ public sealed class Rentals : Entity
               detailsPrice.Mantinance,
               detailsPrice.Accesories,
               detailsPrice.TotalPrice,
-              RentalStatus.Resererved,
+              RentalStatus.Reserved,
               dateRange,
               createdAt
             );
@@ -89,7 +89,7 @@ public sealed class Rentals : Entity
 
     public Result Confirm( DateTime dateUtcNow )
     {
-        if( Status != RentalStatus.Resererved )
+        if( Status != RentalStatus.Reserved )
         {
             return Result.Failure( RentalErrors.NotReserved );
         }
@@ -104,7 +104,7 @@ public sealed class Rentals : Entity
 
     public Result Reject( DateTime dateUtcNow )
     {
-        if ( Status != RentalStatus.Resererved )
+        if ( Status != RentalStatus.Reserved )
         {
             return Result.Failure( RentalErrors.NotReserved );
         }

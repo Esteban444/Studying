@@ -9,16 +9,16 @@ using System.Threading;
 using System.Threading.Tasks;
 #endregion
 
-public sealed class BookRentalDomainEventHandler(IRentalsRepository rentalsRepository, IUsersRepository usersRepository,
+public sealed class BookRentalDomainEventHandler(IRentalRepository rentalsRepository, IUserRepository usersRepository,
                                      IEmailService emailService) : INotificationHandler<RentalReservedDomainEvents>
 {
-    private readonly IRentalsRepository _rentalsRepository = rentalsRepository;
-    private readonly IUsersRepository _usersRepository = usersRepository;
+    private readonly IRentalRepository _rentalsRepository = rentalsRepository;
+    private readonly IUserRepository _usersRepository = usersRepository;
     private readonly IEmailService _emailService = emailService;
 
     public async Task Handle( RentalReservedDomainEvents notification, CancellationToken cancellationToken )
     {
-        var rental = await _rentalsRepository.GetRentalByIdAsync( notification.rentalId, cancellationToken );
+        var rental = await _rentalsRepository.GetByIdAsync( notification.rentalId, cancellationToken );
 
         if (rental is null) { return; }
 

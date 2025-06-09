@@ -15,7 +15,7 @@ public class PricesService
 
     public DetailPrices CalculatedPrice ( Cars car , DateRanges dateRange)
     {
-        var typeCurrency = car.Price!.currencyType;
+        var typeCurrency = car.Price!.CurrencyType;
 
         var price = new Currencies( dateRange.NumberOfDays* car.Price.Amount, typeCurrency);
 

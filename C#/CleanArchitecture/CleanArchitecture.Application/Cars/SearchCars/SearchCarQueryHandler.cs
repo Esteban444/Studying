@@ -13,7 +13,7 @@ internal class SearchCarQueryHandler( ISqlConnectionFactory connectionFactory ) 
 {
     private static readonly int[] ActiveRentalStatus =
     {
-        (int)RentalStatus.Resererved,
+        (int)RentalStatus.Reserved,
         (int)RentalStatus.Confirmed,
         (int)RentalStatus.Completed
     };

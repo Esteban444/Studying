@@ -2,10 +2,10 @@
 
 namespace CleanArchitecture.Domain.Interfaces
 {
-    public interface IUsersRepository
+    public interface IUserRepository
     {
         Task<Users> GetByIdAsync( Guid id, CancellationToken cancellationToken = default );
 
-        Task<Users> AddUserAsync( Users user );
+        void Add( Users user );
     }
 }

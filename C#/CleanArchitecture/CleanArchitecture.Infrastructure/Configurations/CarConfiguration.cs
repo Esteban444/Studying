@@ -32,5 +32,7 @@ public sealed class CarConfiguration : IEntityTypeConfiguration<Cars>
             priceBuilder.Property( currency => currency.CurrencyType )
                .HasConversion( type => type.Code, code => CurrencyTypes.FromCode( code ) );
         });
+
+        builder.Property<uint>( "version" ).IsRowVersion(); //Para la concurrencia
     }
 }
