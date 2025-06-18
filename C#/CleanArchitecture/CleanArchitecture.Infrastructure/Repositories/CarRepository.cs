@@ -3,6 +3,6 @@
 using CleanArchitecture.Domain.Cars;
 using CleanArchitecture.Domain.Interfaces;
 
-public sealed class CarRepository( ApplicationDbContex dbContex ) : Repository<Cars>( dbContex ), ICarRepository
+public sealed class CarRepository( ApplicationDbContext dbContex ) : Repository<Cars>( dbContex ), ICarRepository
 {
 }

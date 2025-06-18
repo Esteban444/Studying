@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 public abstract class Repository<T> where T : Entity
 {
-    protected readonly ApplicationDbContex dbContex;
+    protected readonly ApplicationDbContext dbContex;
 
-    protected Repository( ApplicationDbContex dbContex )
+    protected Repository( ApplicationDbContext dbContex )
     {
         this.dbContex = dbContex;
     }

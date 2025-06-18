@@ -6,6 +6,11 @@ using CleanArchitecture.Domain.Abstractions;
 
 public class Users: Entity
 {
+    public Users()
+    {
+        
+    }
+
     private Users(
         Guid id,
         Names name,

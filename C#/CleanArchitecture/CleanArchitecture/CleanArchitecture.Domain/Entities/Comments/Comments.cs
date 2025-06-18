@@ -6,6 +6,11 @@ using CleanArchitecture.Domain.Entities.Rentals;
 
 public class Comments : Entity
 {
+    public Comments()
+    {
+        
+    }
+
     private Comments(Guid id, Guid carId, Guid rentalId, Guid userId, Rating rating, Comment comment, DateTime? createdAt) : base(id)
     {
         CarId = carId;

@@ -15,7 +15,7 @@ public sealed class RentalRepository : Repository<Rentals>, IRentalRepository
         RentalStatus.Confirmed,
         RentalStatus.Completed
     };
-    public RentalRepository( ApplicationDbContex dbContex ) : base( dbContex )
+    public RentalRepository( ApplicationDbContext dbContex ) : base( dbContex )
     {
     }
 

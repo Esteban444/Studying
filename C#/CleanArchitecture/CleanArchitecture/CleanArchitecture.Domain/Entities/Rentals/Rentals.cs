@@ -10,6 +10,11 @@ using CleanArchitecture.Domain.Shared;
 
 public sealed class Rentals : Entity
 {
+    public Rentals()
+    {
+        
+    }
+
     private Rentals( 
         Guid id,
         Guid carId,

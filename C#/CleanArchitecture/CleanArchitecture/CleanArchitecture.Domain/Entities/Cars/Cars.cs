@@ -6,6 +6,11 @@ using CleanArchitecture.Domain.Shared;
 
 public sealed class Cars: Entity
 {
+    public Cars()
+    {
+        
+    }
+
     public Cars(
         Guid id,
         Models models,

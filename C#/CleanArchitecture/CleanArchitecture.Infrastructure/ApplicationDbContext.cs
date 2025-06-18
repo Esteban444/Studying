@@ -2,37 +2,35 @@
 
 using CleanArchitecture.Application.Exceptions;
 using CleanArchitecture.Domain.Abstractions;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
+using MediatR;
 using System;
-using System.Threading;
-using System.Threading.Tasks;
 
-public sealed class ApplicationDbContex: DbContext, IUnitOfWork
+public sealed class ApplicationDbContext: DbContext, IUnitOfWork
 {
     private readonly IPublisher publisher;
-    public ApplicationDbContex( DbContextOptions options, IPublisher publisher ) : base(options)
+
+    public ApplicationDbContext( DbContextOptions options, IPublisher publisher ) : base(options)
     {
         this.publisher = publisher;
     }
 
-    Task<Guid> IUnitOfWork.SaveChangesAsync( CancellationToken cancellationToken )
+    public ApplicationDbContext(DbContextOptions options) : base(options)
     {
-        throw new NotImplementedException();
     }
 
     protected override void OnModelCreating( ModelBuilder modelBuilder )
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContex).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
 
         base.OnModelCreating( modelBuilder );
     }
 
-    public override async Task<int> SaveChangesAsync ( CancellationToken cancellationToken = default )
+    public override async Task<int> SaveChangesAsync( CancellationToken cancellationToken = default )
     {
         try
         {
-            var result = await base.SaveChangesAsync(cancellationToken);
+            var result = await base.SaveChangesAsync( cancellationToken );
 
             await PublishDomainEventsAsync();
 
@@ -58,5 +56,10 @@ public sealed class ApplicationDbContex: DbContext, IUnitOfWork
         {
             await publisher.Publish( domainEvent );
         }
+    }
+
+    Task<Guid> IUnitOfWork.SaveChangesAsync( CancellationToken cancellationToken )
+    {
+        throw new NotImplementedException();
     }
 }

@@ -24,7 +24,7 @@ public static class DependencyInjections
         var connectionString = configuration.GetConnectionString( "Database" )
             ?? throw new ArgumentNullException( nameof( configuration ) );
 
-        services.AddDbContext<ApplicationDbContex>( options => {
+        services.AddDbContext<ApplicationDbContext>( options => {
              options.UseNpgsql( connectionString ).UseSnakeCaseNamingConvention();
         
         } );
@@ -33,7 +33,7 @@ public static class DependencyInjections
         services.AddScoped<ICarRepository, CarRepository>();
         services.AddScoped<IRentalRepository, RentalRepository>();
 
-        services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<ApplicationDbContex>() );
+        services.AddScoped<IUnitOfWork>( sp => sp.GetRequiredService<ApplicationDbContext>() );
 
         services.AddSingleton<ISqlConnectionFactory>( _ =>  new SQLConnectionFactory( connectionString ) );
 

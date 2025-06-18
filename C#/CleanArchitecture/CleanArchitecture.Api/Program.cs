@@ -1,5 +1,6 @@
 using CleanArchitecture.Application;
 using CleanArchitecture.Infrastructure;
+using CleanArchitecture.Api.Extensions;
 
 var builder = WebApplication.CreateBuilder( args );
 
@@ -20,6 +21,8 @@ if ( app.Environment.IsDevelopment() )
 }
 
 app.UseAuthorization();
+
+app.ApplyMigration();
 
 app.MapControllers();
 
