@@ -16,7 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 public static class DependencyInjections
 {
-    public static IServiceCollection AddInfrastructure( IConfiguration configuration , IServiceCollection services )
+    public static IServiceCollection AddInfrastructure( this IServiceCollection services, IConfiguration configuration )
     {
         services.AddTransient<IDateTimeProvider, DateTimeProvider>();
         services.AddTransient<IEmailService, EmailService>();
