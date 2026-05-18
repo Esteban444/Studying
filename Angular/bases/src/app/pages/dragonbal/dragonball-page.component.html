@@ -1,0 +1,50 @@
+<section class="row">
+    <div class="col-12  col-sm-6">
+      <h3>Agregar: {{ name() }}</h3>
+
+      <input type="text" 
+      class="form-control" 
+      placeholder="Nombre"
+      [value]="name()"
+      (change)="name.set( txtName.value )"
+      (input)="name.set( txtName.value )"
+      #txtName
+      >
+
+      <input type="number" 
+        class ="form-control mt-2"
+        placeholder="Poder"
+        [value]="powerLevel()" 
+        (change)="powerLevel.set( numPowerLevel.valueAsNumber )"
+        (input)="powerLevel.set( numPowerLevel.valueAsNumber )"
+        #numPowerLevel
+       >
+
+      <button (click)="addCharacter()" class="btn btn-primary mt-2">
+        Agregar
+    </button>
+    </div>
+
+    <div class="col-12 col-sm-6">
+      <h3>Lista de personajes</h3>
+      <ul>
+          @for ( character of characters (); track character.id; let idx = $index ) {
+            @if( character.powerLevel > 500) {
+                <li>
+                  <span>{{ idx + 1 }} - {{ character.name }}</span>
+                  <strong 
+                  [class.text-danger]="character.powerLevel > 9000"
+                  [class.text-primary ]="character.powerLevel <= 9000"
+                  >
+                  <!--[ngClass]="powerClass()"-->
+                  ({{ character.powerLevel }})
+                  </strong>
+                </li>
+
+            }@else {
+                <strong>Aqui no hay personajes con poder superior a 500</strong>
+            }
+        }
+      </ul>
+    </div>
+</section>
